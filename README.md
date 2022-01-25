@@ -12,7 +12,22 @@ The Vanilla autoencoder can be used to detect anomalies by way of comparing reco
 A better explanation: https://www.youtube.com/watch?v=2K3ScZp1dXQ
 
 ## Latent Spaces
-*Variational Autoencoder vs Vanilla Autoencoder
+*Variational Autoencoder vs Vanilla Autoencoder*
+
+Legend: 
+- Purple: 0
+- Indigo: 1
+- Blue: 2
+- Cyan: 3
+- Sea Green: 4
+- Green: 5
+- Lime: 6
+- Yellow-Orange: 7
+- Orange: 8
+- Red: 9
+
+The points of each color represent how the handwritten digits get relatively encoded in the latent space. 
+Reconstruction error would drastically reduce with an increase of dimensionality to the latent space – 2 is easier to plot though.
 
 ### Variational Autoencoder
 ![download (1)](https://user-images.githubusercontent.com/54888442/150994364-89e0e71a-6ecb-482c-a7e1-0f2ed6daaab0.png)
