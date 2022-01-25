@@ -47,7 +47,8 @@ This loss function uses a combined loss composed of reconstruction loss and KL l
 #### Reconstruction Loss
 Error is defined by y-target minus y-predicted. Reconstruction loss is the Mean of the Squared Error with respect to the first, second, and third axises of the matrix representing the image data. This is because the MNIST image data set is 28x28 pixels, by 1 color depth parameter. This is the x-position, y-position, and BW alpha value.
 
-#### KL Loss
+#### KL Loss (Kullback–Leibler divergence)
+https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
 KL Loss is -1/2 of the Sum of 1 + the log variance - the square of Mu - the log variance exponentiated. 
 Log variance and Mu are used in a Lambda layer to sample a point.
 Log variance is a Dense layer the size of the latent space. Mu is a Dense layer the size of the latent space.
