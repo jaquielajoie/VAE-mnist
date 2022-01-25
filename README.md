@@ -4,6 +4,13 @@ uses mnist data set and convolutional layers to compress and reconstrcutre the m
 
 analysis.py plots the 2 dimensional latent space 
 
+An autoencoder is a NN architecture that compresses and reconstructs a set of inputs. As the network is trained, reconstruction improves.
+
+The primary difference between a VAE and Vanilla Autoencoder is the VAE operates better for generative applications and unseen models.
+
+The Vanilla autoencoder can be used to detect anomalies by way of comparing reconstruction losses between the trained class of inputs and untrained inputs. 
+A better explanation: https://www.youtube.com/watch?v=2K3ScZp1dXQ
+
 ## Latent Spaces
 *Variational Autoencoder vs Vanilla Autoencoder
 
@@ -15,3 +22,20 @@ analysis.py plots the 2 dimensional latent space
 
 ### Vanilla Autoencoder
 ![before-regularization](https://user-images.githubusercontent.com/54888442/150994305-7608b85d-0d61-4f55-8b9f-1be0f053fa4b.png)
+
+### Differences
+
+The variational autoencoder uses a different loss function which is sent inside of the model's compile function.
+
+This loss function uses a combined loss composed of reconstruction loss and KL loss.
+
+#### Reconstruction Loss
+Error is defined by y-target minus y-predicted. Reconstruction loss is the Mean of the Squared Error with respect to the first, second, and third axises of the matrix representing the image data. This is because the MNIST image data set is 28x28 pixels, by 1 color depth parameter. This is the x-position, y-position, and BW alpha value.
+
+#### KL Loss
+KL Loss is -1/2 of the Sum of 1 + the log variance - the square of Mu - the log variance exponentiated. 
+Log variance and Mu are used in a Lambda layer to sample a point.
+Log variance is a Dense layer the size of the latent space. Mu is a Dense layer the size of the latent space.
+The sampled point is Mu + 1/2 the log variance exponentiated * a random normal distribution  of Mu with a mean of 0 and a standard deviation of 1.
+
+All of this is to say that the Variational Autoencoder regularizes the output of the encoder component. This regularization can be seen with a latent space of 2 plotted on a X, Y graph.
