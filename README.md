@@ -57,3 +57,6 @@ Log variance is a Dense layer the size of the latent space. Mu is a Dense layer 
 The sampled point is Mu + 1/2 the log variance exponentiated * a random normal distribution  of Mu with a mean of 0 and a standard deviation of 1.
 
 All of this is to say that the Variational Autoencoder regularizes the output of the encoder component. This regularization can be seen with a latent space of 2 plotted on a X, Y graph.
+
+### Traversing the VAE latent space
+Since the VAE is regularized in the latent space, once trained, the encoder component can be discarded and the entry point into the system can be the latent space. A point can be chosen – i.e. (0, 3) – and an image of a reconstructed 1 would be returned. (0, -3) would return a 0. (0,0) would likely return some ambigious image considered the overlap seen in this region. A point sampled from negative space would likely return something unexpected as well.
